@@ -13,11 +13,13 @@ Idea:
  - Raspberry PI 4
  - Sensor DHT 11
 
-
  Cabling for sensor:
  - ToDo
 
 ## Dependencies
  - DHT 11 Module https://github.com/szazo/DHT11_Python
+ - Docker containers to offload installation: https://stackoverflow.com/questions/30059784/docker-access-to-raspberry-pi-gpio-pins
 
- 
+## Code insights
+ - Sensor is using abstract class Sensor
+ - All sensors must implement function run() 
