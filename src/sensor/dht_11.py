@@ -9,14 +9,13 @@ class DHT11_Sensor(Sensor):
   Class for direct work with sensor and get raw data from DHT11 sensor
   """
 
-  def __init__(self, pin=4, key_name="missing"):
+  def __init__(self, pin=4):
     # initialize GPIO
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
     GPIO.cleanup()
 
     self.pin = pin
-    self.key_name = key_name
     self.retries = 3
 
   def _dht11_reader(self):
@@ -35,10 +34,8 @@ class DHT11_Sensor(Sensor):
     while not self._validate_data():
       continue
 
-    if self.key_name == "humidity":
-       self.sensor_data = {self.key_name:self.raw_data.humidity}
-    elif self.key_name == "temperature":
-       self.sensor_data = {self.key_name:self.raw_data.temperature}
+    self.sensor_data["humidity"] = self.raw_data.humidity
+    self.sensor_data["temperature"] = self.raw_data.temperature
 
     return self.sensor_data
 
