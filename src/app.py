@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from sensors.dht11 import Dht11_Sensor as Sensor 
+from sensor.dht_11 import DHT11_Sensor as Sensor 
 from dotenv import load_dotenv
 import os
 import logger
